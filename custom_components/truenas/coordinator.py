@@ -206,7 +206,7 @@ class TrueNASCoordinator(DataUpdateCoordinator[None]):
                 self.ds["system_info"]["update_state"] = "unknown"
 
         self._is_scale = bool(
-            self.ds["system_info"]["version"].startswith("TrueNAS-SCALE-")
+            self.ds["system_info"]["version"].startswith("25")
         )
 
         if self._is_scale:
@@ -214,8 +214,8 @@ class TrueNASCoordinator(DataUpdateCoordinator[None]):
                 self._version_major = int(
                     self.ds["system_info"]
                     .get("version")
-                    .removeprefix("TrueNAS-")
-                    .removeprefix("SCALE-")
+          #          .removeprefix("TrueNAS-")
+          #          .removeprefix("SCALE-")
                     .split(".")[0]
                 )
 
@@ -223,8 +223,8 @@ class TrueNASCoordinator(DataUpdateCoordinator[None]):
                 self._version_minor = int(
                     self.ds["system_info"]
                     .get("version")
-                    .removeprefix("TrueNAS-")
-                    .removeprefix("SCALE-")
+             #       .removeprefix("TrueNAS-")
+             #       .removeprefix("SCALE-")
                     .split(".")[1]
                 )
 
