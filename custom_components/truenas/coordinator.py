@@ -75,7 +75,7 @@ class TrueNASCoordinator(DataUpdateCoordinator[None]):
         self.datasets_hass_device_id = None
         self.last_updatecheck_update = datetime(1970, 1, 1)
 
-        self._is_scale = False
+        self._is_scale = True
         self._is_virtual = False
         self._version_major = 0
         self._version_minor = 0
@@ -205,9 +205,9 @@ class TrueNASCoordinator(DataUpdateCoordinator[None]):
                 self.ds["system_info"]["update_jobid"] = 0
                 self.ds["system_info"]["update_state"] = "unknown"
 
-        self._is_scale = bool(
-            self.ds["system_info"]["version"].startswith("25")
-        )
+#        self._is_scale = bool(
+#           self.ds["system_info"]["version"].startswith("25")
+#       )
 
         if self._is_scale:
             if not self._version_major:
